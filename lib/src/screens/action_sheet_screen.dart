@@ -12,11 +12,17 @@ class _ActionSheetScreenState extends State<ActionSheetScreen> {
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
       navigationBar: CupertinoNavigationBar(
-        middle: Text('Cupertino Cards'),
+        middle: Text('Action Sheets and Alerts'),
+        previousPageTitle: 'Widgets',
       ),
-      child: Center(
-        child: Container(
-          child: Text('Hello Scaffold'),
+      child: SafeArea(
+        child: Column(
+          children: <Widget>[
+            CupertinoButton.filled(
+              child: Text('Alert'),
+              onPressed: () {},
+            )
+          ],
         ),
       ),
     );

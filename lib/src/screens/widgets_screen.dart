@@ -3,14 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:widgets_explorer_apps/utilities/cupertino_icons_custom.dart';
 
 class WidgetsScreen extends StatelessWidget {
+  const WidgetsScreen({Key key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Material(
       child: CupertinoPageScaffold(
         backgroundColor: CupertinoColors.systemGroupedBackground,
-        navigationBar: CupertinoNavigationBar(
-          middle: Text('Cupertino App Bar'),
-        ),
         child: CustomScrollView(slivers: <Widget>[
           CupertinoSliverNavigationBar(
             largeTitle: Text('Widgets Explorer'),
@@ -27,6 +25,7 @@ class WidgetsScreen extends StatelessWidget {
                     children: <Widget>[
                       ListTile(
                         leading: Container(
+                          padding: EdgeInsets.all(5.0),
                           decoration: BoxDecoration(
                               shape: BoxShape.circle,
                               color: CupertinoColors.activeBlue),
@@ -38,7 +37,7 @@ class WidgetsScreen extends StatelessWidget {
                         title: Text('Action Sheets and Alerts'),
                         trailing: Icon(CupertinoIcons.right_chevron),
                         onTap: () {
-                          //Navigator.pushNamed(context, '/actionsheet');
+                          Navigator.pushNamed(context, '/actionsheet');
                         },
                       ),
                       Container(
@@ -48,6 +47,7 @@ class WidgetsScreen extends StatelessWidget {
                       ),
                       ListTile(
                         leading: Container(
+                          padding: EdgeInsets.all(5.0),
                           decoration: BoxDecoration(
                               shape: BoxShape.circle,
                               color: CupertinoColors.black),
@@ -67,6 +67,7 @@ class WidgetsScreen extends StatelessWidget {
                       ),
                       ListTile(
                         leading: Container(
+                          padding: EdgeInsets.all(5.0),
                           decoration: BoxDecoration(
                               shape: BoxShape.circle,
                               color: CupertinoColors.systemGreen),
@@ -86,6 +87,7 @@ class WidgetsScreen extends StatelessWidget {
                       ),
                       ListTile(
                         leading: Container(
+                          padding: EdgeInsets.all(5.0),
                           decoration: BoxDecoration(
                               shape: BoxShape.circle,
                               color: CupertinoColors.systemBlue),
@@ -105,6 +107,7 @@ class WidgetsScreen extends StatelessWidget {
                       ),
                       ListTile(
                         leading: Container(
+                          padding: EdgeInsets.all(5.0),
                           decoration: BoxDecoration(
                               shape: BoxShape.circle,
                               color: CupertinoColors.systemOrange),
