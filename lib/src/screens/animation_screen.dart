@@ -7,8 +7,8 @@ class AnimationsScreen extends StatefulWidget {
 }
 
 class _AnimationsScreenState extends State<AnimationsScreen> {
-  double _width = 50.0;
-  double _height = 50.0;
+  double _width = 100.0;
+  double _heightContainer = 100.0;
   Color _color = CupertinoColors.activeGreen;
   BorderRadiusGeometry _borderRadius = BorderRadius.circular(8.0);
 
@@ -18,40 +18,34 @@ class _AnimationsScreenState extends State<AnimationsScreen> {
         navigationBar: CupertinoNavigationBar(
           middle: Text('Animation Container'),
         ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Center(
-              child: Column(
-                children: <Widget>[
-                  Container(
-                    padding: EdgeInsets.symmetric(horizontal: 0, vertical: 300),
-                    child: AnimatedContainer(
-                      duration: Duration(seconds: 1),
-                      curve: Curves.fastOutSlowIn,
-                      width: _width,
-                      height: _height,
-                      decoration: BoxDecoration(
-                          borderRadius: _borderRadius, color: _color),
-                    ),
-                  ),
-                  Container(
-                    padding: EdgeInsets.symmetric(horizontal: 0, vertical: 00),
-                    child: CupertinoButton.filled(
-                      child: Text('Alert'),
-                      onPressed: () {},
-                    ),
-                  ),
-                ],
+        child: Center(
+          child: Container(
+            //THIS IS FOR LAYOUT
+            height: 730,
+            width: 500,
 
-                // padding: EdgeInsets.symmetric(horizontal: 0, vertical: 00),
-                // child: CupertinoButton.filled(
-                //   child: Text('Alert'),
-                //   onPressed: () {},
-                // ),
-              ),
-            )
-          ],
+            color: CupertinoColors.systemGrey4,
+            child: Stack(
+              alignment: Alignment.center,
+              children: <Widget>[
+                AnimatedContainer(
+                  duration: Duration(seconds: 1),
+                  curve: Curves.fastOutSlowIn,
+                  width: _width,
+                  height: _heightContainer,
+                  decoration:
+                      BoxDecoration(borderRadius: _borderRadius, color: _color),
+                ),
+                Positioned(
+                  bottom: 00,
+                  child: CupertinoButton.filled(
+                    child: Icon(CupertinoIcons.play_arrow),
+                    onPressed: _cambiarForma,
+                  ),
+                )
+              ],
+            ),
+          ),
         )
 
         //here
@@ -67,8 +61,8 @@ class _AnimationsScreenState extends State<AnimationsScreen> {
     final random = Random();
 
     setState(() {
-      _height = random.nextInt(300).toDouble();
-      _width = random.nextInt(300).toDouble();
+      _heightContainer = random.nextInt(255).toDouble();
+      _width = random.nextInt(255).toDouble();
       _color = Color.fromRGBO(
           random.nextInt(255), random.nextInt(255), random.nextInt(255), 1);
 
