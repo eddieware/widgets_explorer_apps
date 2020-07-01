@@ -21,8 +21,7 @@ class _AnimationsScreenState extends State<AnimationsScreen> {
         child: Center(
           child: Container(
             //THIS IS FOR LAYOUT
-            height: 730,
-            width: 500,
+            constraints: BoxConstraints.expand(),
 
             color: CupertinoColors.systemGrey4,
             child: Stack(
@@ -37,11 +36,11 @@ class _AnimationsScreenState extends State<AnimationsScreen> {
                       BoxDecoration(borderRadius: _borderRadius, color: _color),
                 ),
                 Positioned(
-                  bottom: 00,
+                  bottom: 85,
                   child: CupertinoButton.filled(
-                    child: Icon(CupertinoIcons.play_arrow),
-                    onPressed: _cambiarForma,
-                  ),
+                      child: Icon(CupertinoIcons.play_arrow),
+                      onPressed: _cambiarForma,
+                      padding: EdgeInsets.symmetric(horizontal: 30)),
                 )
               ],
             ),
