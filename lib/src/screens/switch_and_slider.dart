@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 class SwitchAndSlider extends StatefulWidget {
   SwitchAndSlider({Key key}) : super(key: key);
@@ -8,7 +9,7 @@ class SwitchAndSlider extends StatefulWidget {
 }
 
 class _SwitchAndSliderState extends State<SwitchAndSlider> {
-  double _valorSlider = 100.0;
+  double _valorSlider = 125.0;
   bool _bloquearCheck = false;
 
   @override
@@ -24,6 +25,11 @@ class _SwitchAndSliderState extends State<SwitchAndSlider> {
             children: <Widget>[
               _myCupertinoSlider(),
               _myCupertinoSwitch(),
+
+              _myCupertinoLogo(),
+
+              // FlutterLogo(size: _valorSlider,
+              // )
             ],
           ),
         )));
@@ -35,8 +41,8 @@ class _SwitchAndSliderState extends State<SwitchAndSlider> {
       //color: CupertinoColors.activeGreen,
       child: CupertinoSlider(
         value: _valorSlider,
-        min: 0.0,
-        max: 400.0,
+        min: 50.0,
+        max: 255.0,
         onChanged: (_bloquearCheck)
             ? null
             : (valor) {
@@ -44,7 +50,7 @@ class _SwitchAndSliderState extends State<SwitchAndSlider> {
                   _valorSlider = valor;
                 });
                 //set state para poder el slider
-                //print(_valorSlider);
+                print(_valorSlider);
               },
       ),
     );
@@ -69,6 +75,22 @@ class _SwitchAndSliderState extends State<SwitchAndSlider> {
                 _bloquearCheck = valor;
               });
             }),
+      ],
+    );
+  }
+
+  Widget _myCupertinoLogo() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        Center(
+          child: Container(
+              //color: CupertinoColors.activeGreen,
+              padding: EdgeInsets.symmetric(vertical: 100),
+              child: FlutterLogo(
+                size: _valorSlider,
+              )),
+        ),
       ],
     );
   }
