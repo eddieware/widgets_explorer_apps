@@ -78,7 +78,9 @@ class WidgetsScreen extends StatelessWidget {
                         ),
                         title: Text('Switch And Slider'),
                         trailing: Icon(CupertinoIcons.right_chevron),
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.pushNamed(context, '/switch');
+                        },
                       ),
                       Container(
                         margin: EdgeInsets.only(left: 70.0),
@@ -98,7 +100,9 @@ class WidgetsScreen extends StatelessWidget {
                         ),
                         title: Text('Segmented Control'),
                         trailing: Icon(CupertinoIcons.right_chevron),
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.pushNamed(context, '/segmented');
+                        },
                       ),
                       Container(
                         margin: EdgeInsets.only(left: 70.0),
@@ -118,7 +122,9 @@ class WidgetsScreen extends StatelessWidget {
                         ),
                         title: Text('Pickers'),
                         trailing: Icon(CupertinoIcons.right_chevron),
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.pushNamed(context, '/pickers');
+                        },
                       ),
                     ],
                   ))
