@@ -43,10 +43,10 @@ class _SegmentedControlState extends State<SegmentedControl> {
                 width: 400,
                 child: Expanded(
                   child: Container(
-                    child: CupertinoSegmentedControl(
-                      unselectedColor: CupertinoColors.systemGrey5,
-                      selectedColor: CupertinoColors.white,
-                      borderColor: CupertinoColors.systemGrey3,
+                    child: CupertinoSlidingSegmentedControl(
+                      //unselectedColor: CupertinoColors.systemGrey5,
+                      //selectedColor: CupertinoColors.white,
+                      //borderColor: CupertinoColors.systemGrey3,
                       groupValue: defaultValue,
                       onValueChanged: (changedValue) {
                         setState(() {

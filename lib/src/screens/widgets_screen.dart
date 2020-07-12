@@ -58,7 +58,9 @@ class WidgetsScreen extends StatelessWidget {
                         ),
                         title: Text('Text Inputs'),
                         trailing: Icon(CupertinoIcons.right_chevron),
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.pushNamed(context, '/inputs');
+                        },
                       ),
                       Container(
                         margin: EdgeInsets.only(left: 70.0),
