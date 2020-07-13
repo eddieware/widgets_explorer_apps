@@ -1,16 +1,16 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class SwitchAndSlider extends StatefulWidget {
-  SwitchAndSlider({Key key}) : super(key: key);
+class SliderScreen extends StatefulWidget {
+  SliderScreen({Key key}) : super(key: key);
 
   @override
-  _SwitchAndSliderState createState() => _SwitchAndSliderState();
+  _SliderScreenState createState() => _SliderScreenState();
 }
 
-class _SwitchAndSliderState extends State<SwitchAndSlider> {
-  double _valorSlider = 125.0;
-  bool _bloquearCheck = false;
+class _SliderScreenState extends State<SliderScreen> {
+  double _value = 50.0;
+  bool _switchValue = false;
 
   @override
   Widget build(BuildContext context) {
@@ -21,76 +21,50 @@ class _SwitchAndSliderState extends State<SwitchAndSlider> {
         ),
         child: SafeArea(
             child: Center(
-          child: Column(
-            children: <Widget>[
-              _myCupertinoSlider(),
-              _myCupertinoSwitch(),
-
-              _myCupertinoLogo(),
-
-              // FlutterLogo(size: _valorSlider,
-              // )
-            ],
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              children: <Widget>[
+                _crearSlider(),
+                _crearSwitch(),
+                Expanded(
+                    child: FlutterLogo(
+                  size: _value,
+                ))
+              ],
+            ),
           ),
         )));
   }
 
-  Widget _myCupertinoSlider() {
-    return Container(
-      width: 380,
-      //color: CupertinoColors.activeGreen,
+  Widget _crearSlider() {
+    return SizedBox(
+      width: double.infinity,
       child: CupertinoSlider(
-        value: _valorSlider,
-        min: 50.0,
-        max: 255.0,
-        onChanged: (_bloquearCheck)
-            ? null
-            : (valor) {
-                setState(() {
-                  _valorSlider = valor;
-                });
-                //set state para poder el slider
-                print(_valorSlider);
-              },
-      ),
+          min: 50.0,
+          max: 400.0,
+          value: _value,
+          onChanged: (_switchValue)
+              ? null
+              : (value) {
+                  setState(() {
+                    _value = value;
+                  });
+                }),
     );
   }
 
-  Widget _myCupertinoSwitch() {
+  Widget _crearSwitch() {
     return Row(
       children: <Widget>[
-        SizedBox(
-          width: 16,
-        ),
-        Text(
-          'Bloquear Slider',
-        ),
-        SizedBox(
-          width: 220,
-        ),
+        Expanded(child: Text('Bloquear Slider')),
         CupertinoSwitch(
-            value: _bloquearCheck,
-            onChanged: (valor) {
+            value: _switchValue,
+            onChanged: (bool value) {
               setState(() {
-                _bloquearCheck = valor;
+                _switchValue = value;
               });
-            }),
-      ],
-    );
-  }
-
-  Widget _myCupertinoLogo() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: <Widget>[
-        Center(
-          child: Container(
-              //color: CupertinoColors.activeGreen,
-              padding: EdgeInsets.symmetric(vertical: 100),
-              child: FlutterLogo(
-                size: _valorSlider,
-              )),
-        ),
+            })
       ],
     );
   }

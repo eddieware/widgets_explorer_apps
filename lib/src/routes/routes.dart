@@ -11,7 +11,7 @@ Map<String, WidgetBuilder> getApplicationRoutes() {
   return <String, WidgetBuilder>{
     '/': (BuildContext context) => HomeScreen(),
     '/actionsheet': (BuildContext context) => ActionSheetScreen(),
-    '/switch': (BuildContext context) => SwitchAndSlider(),
+    '/switch': (BuildContext context) => SliderScreen(),
     '/segmented': (BuildContext context) => SegmentedControl(),
     '/pickers': (BuildContext context) => PickersScreen(),
     '/inputs': (BuildContext context) => TextInputScreen(),
